@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.ryanair.hosewski.presentation.scene.search.SearchFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.ryanair.hosewski.presentation.scene.list.ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="origin"
+            app:argType="string" />
+        <argument
+            android:name="destination"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="adults"
+            app:argType="string" />
+        <argument
+            android:name="teens"
+            app:argType="string" />
+        <argument
+            android:name="children"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ryanair.hosewski.presentation.scene.details.DetailsFragment"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="origin"
+            app:argType="string" />
+        <argument
+            android:name="destination"
+            app:argType="string" />
+        <argument android:name="infants"
+            app:argType="integer" />
+        <argument
+            android:name="fare"
+            app:argType="string" />
+        <argument
+            android:name="discount"
+            app:argType="integer" />
+    </fragment>
+</navigation>

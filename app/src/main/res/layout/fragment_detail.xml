@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailsViewModel"
+            type="com.ryanair.hosewski.presentation.scene.details.DetailsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/origin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@{detailsViewModel.origin}"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{detailsViewModel.destination}"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/infants_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@{`Infants left: ` + detailsViewModel.infantsLeft}"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="@+id/origin"
+            app:layout_constraintTop_toBottomOf="@+id/origin" />
+
+        <TextView
+            android:id="@+id/fare_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@{`Fare: ` + detailsViewModel.fare}"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="@+id/origin"
+            app:layout_constraintTop_toBottomOf="@+id/infants_left" />
+
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@{`Discount: ` + detailsViewModel.discount}"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="@+id/origin"
+            app:layout_constraintTop_toBottomOf="@+id/fare_class" />
+
+        <TextView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="➔"
+            app:layout_constraintBottom_toBottomOf="@+id/destination"
+            app:layout_constraintEnd_toStartOf="@+id/destination"
+            app:layout_constraintStart_toEndOf="@+id/origin"
+            app:layout_constraintTop_toTopOf="@+id/destination" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
